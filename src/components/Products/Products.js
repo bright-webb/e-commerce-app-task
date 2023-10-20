@@ -39,7 +39,7 @@ const handleAddToCart = (product) => {
     return;
   }
 
-  const updatedCartItems = [...cartItems, product];
+  const updatedCartItems = [...cartItems, { productId, productName, price, description }];
   setCartItems(updatedCartItems);
   setCartText((prev) => ({
     ...prev,
@@ -47,6 +47,12 @@ const handleAddToCart = (product) => {
   }));
   localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
 };
+
+const isItemInCart = (productId) => {
+  return cartItems.some((item) => item.productId === productId);
+};
+
+
 
 
 
@@ -73,14 +79,13 @@ const handleAddToCart = (product) => {
               $ {product.price}
             </Typography>
             <Button
-                variant="contained"
-                color="primary"
-                disabled={cartItems.includes(product.productId)}
-                style={{ cursor: cartItems.includes(product.productId) ? 'not-allowed' : 'pointer' }}
-                onClick={() => handleAddToCart(product.productId)}
-              >
-                {cartText[product.productId] === 'Added to Cart' ? 'Added to cart' : 'Add to Cart'}
-              </Button>
+              variant="contained"
+              color="primary"
+              onClick={() => handleAddToCart(product)}
+              disabled={isItemInCart(product.productId)}
+            >
+              {cartText[product.productId] === 'Added to Cart' ? 'Proceed to Checkout' : 'Add to Cart'}
+            </Button>
           </Grid>
         ))}
       </Grid>
