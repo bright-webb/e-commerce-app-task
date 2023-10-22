@@ -1,9 +1,0 @@
-# Dockerfile for the backend service
-FROM node:14
-# assuming is app
-WORKDIR /app
-COPY package*.json ./
-RUN npm install
-COPY . .
-EXPOSE 4000
-CMD ["npm", "run", "app"]

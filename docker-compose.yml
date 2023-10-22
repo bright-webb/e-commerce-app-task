@@ -1,0 +1,41 @@
+version: '3'
+services:
+  api-gateway:
+    build:
+      context: ./api-gateway
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    depends_on:
+      - users
+      - products
+      - orders
+
+  users:
+    build:
+      context: ./users
+      dockerfile: Dockerfile
+    ports:
+      - '3001:3000'
+
+  products:
+    build:
+      context: ./products
+      dockerfile: Dockerfile
+    ports:
+      - '3002:3000'
+
+  orders:
+    build:
+      context: ./orders
+      dockerfile: Dockerfile
+    ports:
+      - '3003:3000'
+
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: ecommerce
+    ports:
+      - '3306:3306'
