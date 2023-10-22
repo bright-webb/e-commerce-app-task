@@ -18,7 +18,7 @@ This project involves the development of an E-Commerce application with various 
 - User registration and login functionality with JWT authentication
 - Responsive frontend design using Material-UI components
 - Integration with backend API for data retrieval and storage
-- Adding, fetching, and displaying products on the frontend
+- Fetching and displaying products on the frontend
 - Custom error handling and displaying alerts for users
 
 ## Frontend Implementation
@@ -38,22 +38,28 @@ This project involves the development of an E-Commerce application with various 
 - Displaying products fetched from the backend using Axios
 - Addition of a button to add products to the cart with state management
 
-## Backend Implementation
+### Backend Implementation
 
-### User Management
+The backend is a microservices-based application built using Node.js, Express, Docker, and MySQL..
 
-- Setup of routes for user registration and login functionality
-- Integration of JWT for user authentication and authorization
+### Description
 
-### Product Management
+This application consists of several microservices including:
 
-- Implementation of CRUD operations for products
-- Integration with Sequelize ORM for MySQL database interactions
+- API Gateway
+- User Service
+- Product Service
+- Order Service
 
-### Error Handling
+Each service is responsible for specific functionalities and communicates with each other through RESTful APIs.
 
-- Creation of custom error messages for different scenarios
-- Setup of error responses and status codes for various API requests
+
+### Installation
+
+1. Clone the repository.
+2. Navigate to the root directory.
+3. Run `npm install` in each of the services to install the dependencies
+4. Set up a MySQL database and configure the connection details in the respective service configurations - config directory
 
 ## How to Run
 
@@ -67,5 +73,9 @@ This project involves the development of an E-Commerce application with various 
 
 1. Open the `backend` directory in your terminal.
 2. Run `npm install` to install the necessary packages.
-3. Run `npm run app` to start the backend server.
+3. Run `npm start` to start each of the services individually.
+
+## Note
+
+During the development of this application, certain challenges arose that caused a delay in the delivery of the project. I apologize for any inconvenience this may have caused. I am fully committed to ensuring the timely completion and enhancement of this project in the coming stages. Your understanding and support are highly appreciated.
 
